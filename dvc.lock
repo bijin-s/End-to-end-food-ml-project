@@ -35,6 +35,6 @@ stages:
         WEIGHTS: imagenet
     outs:
     - path: artifacts/prepare_base_model
-      md5: a7af764598c6840325e56bcc5da6cc9d.dir
+      md5: 565db8e1aac20869fc17061d1d15a279.dir
       size: 118857376
       nfiles: 2
