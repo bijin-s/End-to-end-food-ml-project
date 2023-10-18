@@ -1,0 +1,40 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/cnnClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      md5: 27d655886ac4156bde82d8d23c65eeda
+      size: 588
+    - path: src/cnnClassifier/pipeline/stage_01_data_ingestion.py
+      md5: 22cd55f9e9834fdc2364c957a2483900
+      size: 910
+    outs:
+    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
+      md5: 71356547f2b9b6523d95b353de0910d9.dir
+      size: 39464002
+      nfiles: 750
+  prepare_base_model:
+    cmd: python src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+    - path: config/config.yaml
+      md5: 27d655886ac4156bde82d8d23c65eeda
+      size: 588
+    - path: src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
+      md5: 5349f569126bbaba6b7f6d79bf86776e
+      size: 999
+    params:
+      params.yaml:
+        CLASSES: 10
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.01
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      md5: a7af764598c6840325e56bcc5da6cc9d.dir
+      size: 118857376
+      nfiles: 2
