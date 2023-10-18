@@ -35,6 +35,63 @@ stages:
         WEIGHTS: imagenet
     outs:
     - path: artifacts/prepare_base_model
-      md5: a7af764598c6840325e56bcc5da6cc9d.dir
+      md5: c0245f10cd91c5455d7b1664b63c5cf3.dir
       size: 118857376
       nfiles: 2
+  training:
+    cmd: python src/cnnClassifier/pipeline/stage_03_model_training.py
+    deps:
+    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
+      md5: 71356547f2b9b6523d95b353de0910d9.dir
+      size: 39464002
+      nfiles: 750
+    - path: artifacts/prepare_base_model
+      md5: c0245f10cd91c5455d7b1664b63c5cf3.dir
+      size: 118857376
+      nfiles: 2
+    - path: config/config.yaml
+      md5: 27d655886ac4156bde82d8d23c65eeda
+      size: 588
+    - path: src/cnnClassifier/pipeline/stage_03_model_training.py
+      md5: cd07bb19bd61e472bdbb95e8facec2cf
+      size: 929
+    params:
+      params.yaml:
+        AUGMENTATION: true
+        BATCH_SIZE: 16
+        EPOCHS: 1
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: artifacts/training/model.h5
+      md5: 8548fa7d1384d54566e65ce4c7c67ec6
+      size: 60943152
+  evaluation:
+    cmd: python src/cnnClassifier/pipeline/stage_04_model_evaluation.py
+    deps:
+    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
+      md5: 71356547f2b9b6523d95b353de0910d9.dir
+      size: 39464002
+      nfiles: 750
+    - path: artifacts/training/model.h5
+      md5: 8548fa7d1384d54566e65ce4c7c67ec6
+      size: 60943152
+    - path: config/config.yaml
+      md5: 27d655886ac4156bde82d8d23c65eeda
+      size: 588
+    - path: src/cnnClassifier/pipeline/stage_04_model_evaluation.py
+      md5: e7405515670a79c9ed739630f9a6f1da
+      size: 938
+    params:
+      params.yaml:
+        BATCH_SIZE: 16
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+    outs:
+    - path: scores.json
+      md5: 5d9008a666fb3eae567b715c0705c91a
+      size: 73
