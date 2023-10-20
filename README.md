@@ -1,4 +1,4 @@
-# Kidney-Disease-Classification-MLflow-DVC
+# Food-Vision-Classification-MLflow-DVC
 
 
 ## Workflows
@@ -20,12 +20,12 @@
 Clone the repository
 
 ```bash
-https://github.com/krishnaik06/Kidney-Disease-Classification-Deep-Learning-Project
+https://github.com/bijin-s/End-to-end-food-ml-project
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n cnncls python=3.8 -y
+conda create -n cnncls python=3.9 -y
 ```
 
 ```bash
@@ -81,7 +81,7 @@ export MLFLOW_TRACKING_USERNAME=entbappy
 export MLFLOW_TRACKING_PASSWORD=6824692c47a369aa6f9eac5b10041d5c8edbcef0
 
 ```
-
+(can use "set" in windows instead if export)
 
 ### DVC cmd
 
