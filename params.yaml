@@ -2,11 +2,7 @@ AUGMENTATION: True
 IMAGE_SIZE: [224, 224, 3] # as per Effcientnet model
 BATCH_SIZE: 16
 INCLUDE_TOP: False
-<<<<<<< Updated upstream
-EPOCHS: 5
-=======
-EPOCHS: 20
->>>>>>> Stashed changes
+EPOCHS: 10
 CLASSES: 2
 WEIGHTS: imagenet
-LEARNING_RATE: 0.01
+LEARNING_RATE: 0.001
