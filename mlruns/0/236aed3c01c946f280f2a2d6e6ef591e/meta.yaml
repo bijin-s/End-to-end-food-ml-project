@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/bijin/Documents/projects/End-to-end-food-ml-project/End-to-end-food-ml-project/mlruns/0/236aed3c01c946f280f2a2d6e6ef591e/artifacts
+end_time: 1697891120741
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 236aed3c01c946f280f2a2d6e6ef591e
+run_name: brawny-goose-338
+run_uuid: 236aed3c01c946f280f2a2d6e6ef591e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697891109912
+status: 3
+tags: []
+user_id: bijin

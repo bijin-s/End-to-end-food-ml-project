@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/bijin/Documents/projects/End-to-end-food-ml-project/End-to-end-food-ml-project/mlruns/0/8cf5ff960b314e6ab59f3e96b5c1b1a7/artifacts
+end_time: 1697889360417
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8cf5ff960b314e6ab59f3e96b5c1b1a7
+run_name: tasteful-mare-155
+run_uuid: 8cf5ff960b314e6ab59f3e96b5c1b1a7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1697889350704
+status: 3
+tags: []
+user_id: bijin
