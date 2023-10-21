@@ -4,86 +4,101 @@ stages:
     cmd: python src/cnnClassifier/pipeline/stage_01_data_ingestion.py
     deps:
     - path: config/config.yaml
-      md5: 27d655886ac4156bde82d8d23c65eeda
-      size: 588
+      hash: md5
+      md5: 82543352d80bca1da98fcb315c858e12
+      size: 595
     - path: src/cnnClassifier/pipeline/stage_01_data_ingestion.py
-      md5: 22cd55f9e9834fdc2364c957a2483900
+      hash: md5
+      md5: fd612007c0aaccdf7b95571f53f0454f
       size: 910
     outs:
-    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
-      md5: 71356547f2b9b6523d95b353de0910d9.dir
-      size: 39464002
-      nfiles: 750
+    - path: artifacts/data_ingestion/pizza_steak/train
+      hash: md5
+      md5: 1cdffe1193e9b8512a61732421608675.dir
+      size: 83259853
+      nfiles: 1500
   prepare_base_model:
     cmd: python src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
     deps:
     - path: config/config.yaml
-      md5: 27d655886ac4156bde82d8d23c65eeda
-      size: 588
+      hash: md5
+      md5: 82543352d80bca1da98fcb315c858e12
+      size: 595
     - path: src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
-      md5: 5349f569126bbaba6b7f6d79bf86776e
+      hash: md5
+      md5: e8e39a301f4b90d1b4f2c86acc66ef32
       size: 999
     params:
       params.yaml:
-        CLASSES: 10
+        CLASSES: 2
         IMAGE_SIZE:
         - 224
         - 224
         - 3
         INCLUDE_TOP: false
-        LEARNING_RATE: 0.01
+        LEARNING_RATE: 0.001
         WEIGHTS: imagenet
     outs:
     - path: artifacts/prepare_base_model
-      md5: c0245f10cd91c5455d7b1664b63c5cf3.dir
-      size: 118857376
+      hash: md5
+      md5: de603902447bc66405d5a6177d4858dc.dir
+      size: 189160
       nfiles: 2
   training:
     cmd: python src/cnnClassifier/pipeline/stage_03_model_training.py
     deps:
-    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
-      md5: 71356547f2b9b6523d95b353de0910d9.dir
-      size: 39464002
-      nfiles: 750
+    - path: artifacts/data_ingestion/pizza_steak/train
+      hash: md5
+      md5: 1cdffe1193e9b8512a61732421608675.dir
+      size: 83259853
+      nfiles: 1500
     - path: artifacts/prepare_base_model
-      md5: c0245f10cd91c5455d7b1664b63c5cf3.dir
-      size: 118857376
+      hash: md5
+      md5: de603902447bc66405d5a6177d4858dc.dir
+      size: 189160
       nfiles: 2
     - path: config/config.yaml
-      md5: 27d655886ac4156bde82d8d23c65eeda
-      size: 588
+      hash: md5
+      md5: 82543352d80bca1da98fcb315c858e12
+      size: 595
     - path: src/cnnClassifier/pipeline/stage_03_model_training.py
-      md5: cd07bb19bd61e472bdbb95e8facec2cf
+      hash: md5
+      md5: 316063ef5fe008654c19c00f5863d9d3
       size: 929
     params:
       params.yaml:
         AUGMENTATION: true
         BATCH_SIZE: 16
-        EPOCHS: 1
+        EPOCHS: 10
         IMAGE_SIZE:
         - 224
         - 224
         - 3
     outs:
     - path: artifacts/training/model.h5
-      md5: 8548fa7d1384d54566e65ce4c7c67ec6
-      size: 60943152
+      hash: md5
+      md5: 42bc4811b190328d90424db15355fead
+      size: 425656
   evaluation:
     cmd: python src/cnnClassifier/pipeline/stage_04_model_evaluation.py
     deps:
-    - path: artifacts/data_ingestion/10_food_classes_10_percent/train
-      md5: 71356547f2b9b6523d95b353de0910d9.dir
-      size: 39464002
-      nfiles: 750
+    - path: artifacts/data_ingestion/pizza_steak/train
+      hash: md5
+      md5: 1cdffe1193e9b8512a61732421608675.dir
+      size: 83259853
+      nfiles: 1500
     - path: artifacts/training/model.h5
-      md5: 8548fa7d1384d54566e65ce4c7c67ec6
-      size: 60943152
+      hash: md5
+      md5: 42bc4811b190328d90424db15355fead
+      size: 425656
     - path: config/config.yaml
-      md5: 27d655886ac4156bde82d8d23c65eeda
-      size: 588
+      hash: md5
+      md5: 82543352d80bca1da98fcb315c858e12
+      size: 595
     - path: src/cnnClassifier/pipeline/stage_04_model_evaluation.py
-      md5: e7405515670a79c9ed739630f9a6f1da
-      size: 938
+      hash: md5
+      md5: 3fceb4ac4bd09ba9900e1833534af160
+      size: 936
     params:
       params.yaml:
         BATCH_SIZE: 16
@@ -93,5 +108,6 @@ stages:
         - 3
     outs:
     - path: scores.json
-      md5: 5d9008a666fb3eae567b715c0705c91a
+      hash: md5
+      md5: 39da025fe659ce37421c6f391c2430ef
       size: 73

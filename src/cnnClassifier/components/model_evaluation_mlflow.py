@@ -31,6 +31,7 @@ class Evaluation:
 
         self.valid_generator = valid_datagenerator.flow_from_directory(
             directory=self.config.training_data,
+            class_mode="binary",
             subset="validation",
             shuffle=False,
             **dataflow_kwargs
@@ -69,6 +70,6 @@ class Evaluation:
                 # There are other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.keras.log_model(self.model, "model", registered_model_name="EfficientNetV2")
+                mlflow.keras.log_model(self.model, "model", registered_model_name="Basic Cnn")
             else:
                 mlflow.keras.log_model(self.model, "model")
