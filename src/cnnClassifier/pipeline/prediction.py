@@ -64,5 +64,5 @@ class PredictionPipeline:
             prediction = 'Normal'
             return [{ "image" : prediction}]'''
         
-        return [{ "image" : str(result)}]
+        return [{ "The current predicted food class is" : str(result)}]
         
