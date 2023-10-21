@@ -62,7 +62,11 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
+<<<<<<< Updated upstream
         training_data = os.path.join(self.config.data_ingestion.unzip_dir, "pizza_steak\\test")
+=======
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "pizza_test\\train")
+>>>>>>> Stashed changes
         create_directories([
             Path(training.root_dir)
         ])

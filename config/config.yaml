@@ -3,7 +3,11 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
+<<<<<<< Updated upstream
   source_URL: https://drive.google.com/file/d/16DJdP0Rf07DENAAIicDibpasgqjrQIn3/view?usp=sharing
+=======
+  source_URL: https://storage.googleapis.com/ztm_tf_course/food_vision/pizza_steak.zip
+>>>>>>> Stashed changes
   local_data_file: artifacts/data_ingestion/pizza_steak.zip
   unzip_dir: artifacts/data_ingestion
 
