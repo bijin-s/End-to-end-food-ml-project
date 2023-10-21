@@ -62,7 +62,7 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "10_food_classes_10_percent\\test")
+        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "pizza_steak\\test")
         create_directories([
             Path(training.root_dir)
         ])
@@ -85,7 +85,7 @@ class ConfigurationManager:
     def get_evaluation_config(self) -> EvaluationConfig:
         eval_config = EvaluationConfig(
             path_of_model="artifacts/training/model.h5",
-            training_data="artifacts/data_ingestion/10_food_classes_10_percent/test",
+            training_data="artifacts/data_ingestion/pizza_steak/test",
             mlflow_uri="https://dagshub.com/bijin-s/End-to-end-food-ml-project.mlflow",
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,
