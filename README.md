@@ -1,5 +1,6 @@
 # Food-Vision-Classification-MLflow-DVC
 
+This is a implentation of Machine learning food vison project which used DVC version controlling on pipeline and ml flow to track experimentation and is deployed on aws
 
 ## Workflows
 
@@ -64,6 +65,7 @@ open up you local host and port
 
 ### dagshub
 [dagshub](https://dagshub.com/)
+Sample credentials
 
 MLFLOW_TRACKING_URI=https://dagshub.com/entbappy/Kidney-Disease-Classification-MLflow-DVC.mlflow \
 MLFLOW_TRACKING_USERNAME=entbappy \
