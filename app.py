@@ -48,6 +48,6 @@ def predictRoute():
 if __name__ == "__main__":
     clApp = ClientApp()
     #fill add commit
-    app.run(host='0.0.0.0', port=8080) #for AWS
+    app.run(host='0.0.0.0', port=80) #for AWS
 
 
