@@ -1,7 +1,7 @@
 # Food-Vision-Classification-MLflow-DVC
 
 This is a implentation of Machine learning food vison project which used DVC version controlling on pipeline and ml flow to track experimentation and is deployed on aws
-Link - http://52.201.255.202:8080/
+
 ## Workflows
 
 1. Update config.yaml
